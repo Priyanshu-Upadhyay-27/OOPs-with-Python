@@ -2,10 +2,10 @@
 
 A comprehensive guide and practical implementation of Object-Oriented Programming concepts in Python. This repository contains a detailed Jupyter Notebook that transitions from fundamental concepts to advanced system design patterns.
 
-## 🚀 Overview
+## Overview
 The core of this project is the `OOPs in Python.ipynb` notebook, which serves as a living document of learning. It includes theoretical explanations, memory-address analysis, and hands-on code for real-world scenarios.
 
-## 📚 Key Concepts Covered
+## Key Concepts Covered
 
 ### 1. Fundamentals
 - **Class vs. Object**: Understanding blueprints and instances.
@@ -31,3 +31,7 @@ The core of this project is the `OOPs in Python.ipynb` notebook, which serves as
 - **ATM System**: A functional ATM class with PIN security, balance tracking, and transaction logic.
 - **Fraction Datatype**: A custom numeric type capable of performing arithmetic operations on fractions.
 
+## 💻 Usage
+To explore the concepts, open the Jupyter Notebook:
+```bash
+jupyter notebook "OOPs in Python.ipynb"
