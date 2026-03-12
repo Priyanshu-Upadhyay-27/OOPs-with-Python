@@ -11,16 +11,16 @@ class Movie_explorer:
         1. Find the movies of a particular genre
         2. Show me the cast of the specific movie
         3. Find the summary of the movie
-        4. Find the release data of the movie
+        4. Find the upcoming movies
         5. exit""")
         if user_input == "1":
             self.fetch_genre_movie()
         elif user_input == "2":
             self.fetch_cast_movie()
         elif user_input == "3":
-            print("Summary")
+            self.fetch_summary_movie()
         elif user_input == "4":
-            print("Release Date")
+            self.fetch_upcoming_movie()
         elif user_input == "5":
             return
         else:
@@ -75,11 +75,19 @@ class Movie_explorer:
         self.fetch_summary(movie_id)
 
     def fetch_summary(self, movie_id):
-        fetched = requests.get(url=f"https://api.themoviedb.org/3/movie/{movie_id}/summary",
+        fetched = requests.get(url=f"https://api.themoviedb.org/3/movie/{movie_id}",
                                params={"api_key": API_KEY})
         data = fetched.json()
-        print(data["results"])
+        print("Title: ", data["title"])
+        print("Summary: ", data["overview"])
 
+    def fetch_upcoming_movie(self):
+        url = "https://api.themoviedb.org/3/movie/upcoming"
+        params = {"api_key": API_KEY}
+        response = requests.get(url, params=params)
+        data = response.json()
+        for i in data:
+            print("Title: ", data[i])
 
 
 
