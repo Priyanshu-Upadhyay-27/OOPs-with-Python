@@ -43,10 +43,23 @@ class Movie_explorer:
 
     def fetch_cast_movie(self):
         print("Fetching available Movie Ids...")
-        print(requests.get(f"https://api.themoviedb.org/3/movie/popular?api_key={API_KEY}").json())
+        url = "https://api.themoviedb.org/3/movie/popular"
+
+        params = {
+            "api_key": API_KEY
+        }
+        response = requests.get(url, params=params).json()
+        for movie in response["results"]:
+            print(movie["id"], "-", movie["title"])
         movie_id = int(input("Enter a movie id: "))
         self.fetch_cast(movie_id)
     def fetch_cast(self, movie_id):
-        fetched = requests.get("")
+        fetched = requests.get(url=f"https://api.themoviedb.org/3/movie/{movie_id}/credits",
+                               params={"api_key": API_KEY}
+                               )
+
+        data = fetched.json()
+        print(data["cast"])
+
 obj = Movie_explorer()
 
