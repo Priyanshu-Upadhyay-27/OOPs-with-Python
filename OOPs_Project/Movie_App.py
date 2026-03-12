@@ -16,7 +16,7 @@ class Movie_explorer:
         if user_input == "1":
             self.fetch_genre_movie()
         elif user_input == "2":
-            print("Cast")
+            self.fetch_cast_movie()
         elif user_input == "3":
             print("Summary")
         elif user_input == "4":
@@ -41,5 +41,12 @@ class Movie_explorer:
         for m in data["results"]:
             print(m["title"])
 
+    def fetch_cast_movie(self):
+        print("Fetching available Movie Ids...")
+        print(requests.get(f"https://api.themoviedb.org/3/movie/popular?api_key={API_KEY}").json())
+        movie_id = int(input("Enter a movie id: "))
+        self.fetch_cast(movie_id)
+    def fetch_cast(self, movie_id):
+        fetched = requests.get("")
 obj = Movie_explorer()
 
