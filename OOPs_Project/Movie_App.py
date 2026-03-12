@@ -86,8 +86,9 @@ class Movie_explorer:
         params = {"api_key": API_KEY}
         response = requests.get(url, params=params)
         data = response.json()
-        for i in data:
-            print("Title: ", data[i])
+        for movie in data["results"]:
+            print("ID:", movie["id"], "Title:", movie["title"])
+        ui = input("Do you want summary?")
 
 
 
