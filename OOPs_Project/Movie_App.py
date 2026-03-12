@@ -25,7 +25,6 @@ class Movie_explorer:
             return
         else:
             print("Invalid Input, try again")
-            self.__init__()
 
     def fetch_genre_movie(self):
         print("Fetching available Genre Ids...")
