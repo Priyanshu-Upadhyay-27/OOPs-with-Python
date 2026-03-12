@@ -88,7 +88,12 @@ class Movie_explorer:
         data = response.json()
         for movie in data["results"]:
             print("ID:", movie["id"], "Title:", movie["title"])
-        ui = input("Do you want summary?")
+        ui = input("Do you want summary?(yes/no)")
+        if ui == "yes":
+            movie_id = int(input("Enter a movie id: "))
+            self.fetch_summary(movie_id)
+        else:
+            return
 
 
 
