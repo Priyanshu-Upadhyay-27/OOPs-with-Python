@@ -61,5 +61,21 @@ class Movie_explorer:
         data = fetched.json()
         print(data["cast"])
 
+    def fetch_summary_movie(self):
+        print("Fetching available Movie Ids...")
+        url = "https://api.themoviedb.org/3/movie/popular"
+
+        params = {
+            "api_key": API_KEY
+        }
+        response = requests.get(url, params=params).json()
+        for movie in response["results"]:
+            print(movie["id"], "-", movie["title"])
+        movie_id = int(input("Enter a movie id: "))
+        self.fetch_summary(movie_id)
+
+
+
+
 obj = Movie_explorer()
 
